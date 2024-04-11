@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<CRUDFINAL.Models.Compra>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Inicio";
 }
 
-<h1>Index</h1>
+<h1>Compras</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create")'">Crear Compra</button>
 </p>
-<table class="table">
+
+<table class="table table-success">
     <thead>
         <tr>
             <th>
@@ -55,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Iva)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", new { id = item.Id })'">Editar</button>
+                    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Details", new { id = item.Id })'">Detalles</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.Id })'">Eliminar</button>
             </td>
         </tr>
 }
